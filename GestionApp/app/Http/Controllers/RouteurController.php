@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class StaffController extends Controller
+class RouteurController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('administration.page.Staff.index');
+        return view('administration.page.Routeur.index');
+
     }
 
     /**

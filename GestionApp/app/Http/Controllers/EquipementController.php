@@ -11,7 +11,8 @@ class EquipementController extends Controller
      */
     public function index()
     {
-        //
+        return view('administration.page.Equipement.index');
+
     }
 
     /**

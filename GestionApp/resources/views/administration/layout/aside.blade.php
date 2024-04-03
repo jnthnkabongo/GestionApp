@@ -123,7 +123,7 @@
             </a>
             <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="components-alerts.html">
+                    <a href="{{ route('liste-routeur') }}">
                     <i class="bi bi-circle"></i><span>Liste Routeur</span>
                     </a>
                 </li>
@@ -136,7 +136,7 @@
             </a>
             <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="forms-elements.html">
+                    <a href="{{ route('liste-staff') }}">
                     <i class="bi bi-circle"></i><span>Liste Staff</span>
                     </a>
                 </li>
@@ -149,12 +149,12 @@
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="tables-general.html">
+                    <a href="{{ route('liste-region') }}">
                     <i class="bi bi-circle"></i><span>Liste Region</span>
                     </a>
                 </li>
                 <li>
-                    <a href="tables-data.html">
+                    <a href="{{ route('liste-site') }}">
                     <i class="bi bi-circle"></i><span>Liste Site</span>
                     </a>
                 </li>
@@ -167,7 +167,7 @@
             </a>
             <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="charts-chartjs.html">
+                    <a href="{{ route('liste-equipement') }}">
                     <i class="bi bi-circle"></i><span>Liste Equipement</span>
                     </a>
                 </li>
