@@ -172,8 +172,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="charts-chartjs.html">
-                    <i class="bi bi-circle"></i><span>Opération</span>
+                    <a href="{{ route('liste-operation') }}">
+                    <i class="bi bi-circle"></i><span>Liste Opération</span>
                     </a>
                 </li>
             </ul>

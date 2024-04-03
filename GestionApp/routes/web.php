@@ -32,3 +32,4 @@ Route::get('liste-site', [LocationController::class, 'indexSite'])->name('liste-
 
 Route::get('liste-equipement', [EquipementController::class, 'index'])->name('liste-equipement');
 
+Route::get('liste-operation', [EquipementController::class, 'indexOperation'])->name('liste-operation');

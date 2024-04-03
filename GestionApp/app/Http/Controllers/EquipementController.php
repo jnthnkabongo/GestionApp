@@ -15,6 +15,12 @@ class EquipementController extends Controller
 
     }
 
+    public function indexOperation()
+    {
+        return view('administration.page.Equipement.index');
+
+    }
+
     /**
      * Show the form for creating a new resource.
      */
