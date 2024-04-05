@@ -11,7 +11,7 @@ class ParametresController extends Controller
      */
     public function index()
     {
-        //
+        return view('administration.page.Parametres.index');
     }
 
     /**

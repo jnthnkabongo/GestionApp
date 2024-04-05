@@ -7,8 +7,8 @@
     <title>Gestion Parc Informatique</title>
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="{{ asset('assets/img/bboxx.png') }}" rel="icon">
+    <link href="{{ asset('assets/img/bboxx.png') }}" rel="apple-touch-icon">
 
     <!-- Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -21,6 +21,9 @@
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -29,8 +32,7 @@
 
         <div class="d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo d-flex align-items-center">
-            <img src="assets/img/logo.png" alt="">
-            <span class="d-none d-lg-block">NiceAdmin</span>
+            <img src="{{ asset('assets/img/bboxx.png') }}" alt="">
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -177,6 +179,13 @@
                     </a>
                 </li>
             </ul>
+        </li><!-- Fin Equipements Nav -->
+
+        <li class="nav-item">
+            <a href="{{ route('liste-parametres') }}" class="nav-link collapsed">
+            <i class="bi bi-gear"></i><span>Paramètres</span>
+            </a>
+
         </li><!-- Fin Equipements Nav -->
 
         <li class="nav-heading">Pages</li>

@@ -4,8 +4,10 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EquipementController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\ParametresController;
 use App\Http\Controllers\RouteurController;
 use App\Http\Controllers\StaffController;
+use Faker\Guesser\Name;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,5 +33,11 @@ Route::get('liste-region', [LocationController::class, 'index'])->name('liste-re
 Route::get('liste-site', [LocationController::class, 'indexSite'])->name('liste-site');
 
 Route::get('liste-equipement', [EquipementController::class, 'index'])->name('liste-equipement');
+Route::get('creation-equipement', [EquipementController::class, 'createquipement'])->name('create-equipement');
+Route::post('creation-equipements', [EquipementController::class, 'create'])->name('creation-equipements');
+Route::get('modifier-{item}', [EquipementController::class, 'store'])->name('afficher-modification');
 
 Route::get('liste-operation', [EquipementController::class, 'indexOperation'])->name('liste-operation');
+
+Route::get('liste-parametres', [ParametresController::class, 'index'])->name('liste-parametres');
+

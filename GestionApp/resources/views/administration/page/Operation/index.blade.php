@@ -4,11 +4,11 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="pagetitle">
-                    <h1>Liste Staff</h1>
+                    <h1>Liste Opération</h1>
                     <nav>
                       <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Liste Staff</li>
+                        <li class="breadcrumb-item active">Liste Opération</li>
                       </ol>
                     </nav>
                 </div>

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('equipementtype');
             $table->string('location_id');
             $table->string('site_id');
-            $table->string('state');
+            $table->string('state_id');
             $table->string('available');
             $table->string('feedback');
             $table->string('observation');

@@ -1,6 +1,6 @@
 @extends('administration.layout.entete')
 @section('content')
-<main class="bg-white">
+<main class="bg-light">
     <div class="container">
 
       <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
@@ -8,7 +8,7 @@
           <div class="row justify-content-center">
             <div class="col-lg-6 col-md-6 d-flex flex-column align-items-center justify-content-center">
                 <div class="card mb-3">
-                    <div class="card-body">
+                    <div id="cardAuth" class="card-body">
                         <div class="pt-4 pb-3 text-center">
                             <img src="{{ asset('assets/img/bboxx.png') }}" height="120px" width="350px" alt="">
                         </div>

@@ -16,7 +16,7 @@ class LocationController extends Controller
 
     public function indexSite()
     {
-        return view('administration.page.Location.index');
+        return view('administration.page.Site.index');
     }
 
 
