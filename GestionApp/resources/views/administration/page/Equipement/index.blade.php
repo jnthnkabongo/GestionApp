@@ -24,7 +24,7 @@
 
     <div class="card">
         <div class="card-body">
-          <h5 class="card-title text-center">Liste du Staff</h5>
+          <h5 class="card-title text-center">Liste des équipements </h5>
 
           <!-- Table with stripped rows -->
           <table class="table table-striped">
@@ -42,25 +42,29 @@
               </tr>
             </thead>
             <tbody>
-                @foreach ($liste_equipements as $item)
+                @forelse ( $liste_equipements as $item)
                 <tr>
-                    <th scope="row"></th>
-                    <td>{{ $item->equipement }}</td>
-                    <td>{{ $item->serialnumber }}</td>
-                    <td>{{ $item->productnumber }}</td>
-                    <td>{{ $item->Equipement->intitule }}</td>
-                    <td>{{ $item->Region->nom }}</td>
-                    <td>{{ $item->Site->site }}</td>
-                    <td>{{ $item->State->intitule }}</td>
+                    <td class="cell">{{ ($liste_equipements->perPage() * ($liste_equipements->currentPage() - 1 ))+ $loop->iteration }}</td>
+                    <td class="cell">{{ $item->equipement }}</td>
+                    <td class="cell">{{ $item->serialnumber }}</td>
+                    <td class="cell">{{ $item->productnumber }}</td>
+                    <td class="cell">{{ $item->Equipement->intitule }}</td>
+                    <td class="cell">{{ $item->Region->nom }}</td>
+                    <td class="cell">{{ $item->Site->site }}</td>
+                    <td class="cell">{{ $item->State->intitule }}</td>
                     <td>
                         <a class="text-black" data-bs-toggle="modal" data-bs-target="#VisionnerEquipement" href=""><i class="bi bi-eye"></i></a>&nbsp;
-                        <a class="text-black" data-bs-toggle="modal" data-bs-target="#ModifierEquipement" href="{{ 'afficher-modification',$item->id }}"><i class="bi bi-pencil"></i></a>&nbsp;
+                        <a href="{{ route('afficher-modification', $item->id) }}" class="text-black" ><i class="bi bi-pencil"></i></a>&nbsp;
                         <a class="text-black" href=""><i class="bi bi-trash"></i></a>
                     </td>
                 </tr>
-
-                @endforeach
-
+                @empty
+                <tr>
+                    <td class="cell" colspan="12">
+                        <div class="" style="text-align: center">Aucun équipement enregistré</div>
+                    </td>
+                </tr>
+                @endforelse
             </tbody>
           </table>
           <!-- End Table with stripped rows -->
@@ -103,11 +107,11 @@
                         <div class="card-body">
                           <h5 class="card-title"></h5>
 
-                          <form action="{{ route('creation-equipements') }}" method="POST" class="row g-3">
+                          <form action="{{ route('modifier-equipements', $item->id) }}" method="POST" class="row g-3">
                             @csrf
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="equipement" name="equipement" placeholder="Equipement">
+                                    <input type="text" class="form-control" id="equipement" name="equipement" value="{{ $item->equipement }}">
                                     <label for="floatingName">Equipement</label>
                                 </div>
                                 <div class="text-danger">
@@ -119,7 +123,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="serialnumber" name="serialnumber" placeholder="Numéro Série">
+                                    <input type="text" class="form-control" id="serialnumber" name="serialnumber" value="{{ $item->serialnumber }}">
                                     <label for="floatingName">Numéro Série</label>
                                 </div>
                                 <div class="text-danger">
@@ -254,7 +258,7 @@
 
                         </form>
                         </div>
-                      </div>
+                    </div>
 
                 </div>
                 <div class="modal-footer">

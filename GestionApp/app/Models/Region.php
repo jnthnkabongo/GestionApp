@@ -11,4 +11,14 @@ class Region extends Model
     protected $fillable = [
         'nom'
     ];
+
+    /**
+     * Get all of the comments for the Region
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function Regions()
+    {
+        return $this->hasMany(Equipements::class, 'location_id', 'id');
+    }
 }

@@ -11,4 +11,14 @@ class State extends Model
     protected $fillable = [
         'intitule'
     ];
+
+    /**
+     * Get the user that owns the State
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function State()
+    {
+        return $this->belongsTo(Equipements::class, 'id', 'state_id');
+    }
 }

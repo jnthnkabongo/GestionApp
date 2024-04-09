@@ -23,7 +23,7 @@ class EquipementController extends Controller
         $equipement_type = EquipementType::orderBy('intitule')->get();
         $site_liste = Site::orderBy('site')->get();
         $region_liste = Region::orderBy('nom')->get();
-        $liste_equipements = Equipements::with('State', 'Site', 'Region')->orderBydesc('id')->paginate(10);
+        $liste_equipements = Equipements::with('State', 'Site', 'Region','Equipement')->orderBydesc('id')->paginate(10);
         return view('administration.page.Equipement.index', compact('liste_equipements','site_liste', 'region_liste','equipement_type','state_equipement'));
 
     }
@@ -42,7 +42,7 @@ class EquipementController extends Controller
         $state_equipement = State::orderBy('intitule')->get();
         $equipement_type = EquipementType::orderBy('intitule')->get();
         $site_liste = Site::orderBy('site')->get();
-        $region_liste = Region::orderBy('nom')->get();
+        $region_liste = Region::whereNotNull('nom')->orderBy('nom')->with('Regions')->get();
         return view('administration.page.Equipement.create', compact('site_liste', 'region_liste','equipement_type','state_equipement'));
     }
     public function create(Equipements $Equipements, SaveEquipement $request)
@@ -69,9 +69,21 @@ class EquipementController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Equipements $item)
     {
-        //
+        $site_liste = Site::all();
+        $region_liste = Region::all();
+        $state_equipement = State::all();
+        $equipement_type = EquipementType::all();
+        //$item = Equipements::with(['Site', 'State', 'Region','Equipement'])->find($item);
+        //dd($item);
+        //return view('administration.page.Equipement.modifier', compact('item','equipement_type','state_equipement','region_liste','site_liste'));
+        //$relations = Equipements::with('State', 'Site', 'Region','Equipement');
+        //$state_equipement = State::orderBy('intitule')->get();
+        //$equipement_type = EquipementType::orderBy('intitule')->get();
+        //$site_liste = Site::orderBy('site')->get();
+        //$region_liste = Region::orderBy('nom')->get();
+        return view('administration.page.Equipement.modifier', compact('item','site_liste', 'region_liste','equipement_type','state_equipement'));
     }
 
     /**

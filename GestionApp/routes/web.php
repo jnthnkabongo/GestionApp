@@ -36,6 +36,7 @@ Route::get('liste-equipement', [EquipementController::class, 'index'])->name('li
 Route::get('creation-equipement', [EquipementController::class, 'createquipement'])->name('create-equipement');
 Route::post('creation-equipements', [EquipementController::class, 'create'])->name('creation-equipements');
 Route::get('modifier-{item}', [EquipementController::class, 'store'])->name('afficher-modification');
+Route::get('modifiers-{item}', [EquipementController::class, 'update'])->name('modifier-equipements');
 
 Route::get('liste-operation', [EquipementController::class, 'indexOperation'])->name('liste-operation');
 
