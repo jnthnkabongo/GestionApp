@@ -35,8 +35,10 @@ Route::get('liste-site', [LocationController::class, 'indexSite'])->name('liste-
 Route::get('liste-equipement', [EquipementController::class, 'index'])->name('liste-equipement');
 Route::get('creation-equipement', [EquipementController::class, 'createquipement'])->name('create-equipement');
 Route::post('creation-equipements', [EquipementController::class, 'create'])->name('creation-equipements');
-Route::get('modifier-{item}', [EquipementController::class, 'store'])->name('afficher-modification');
-Route::get('modifiers-{item}', [EquipementController::class, 'update'])->name('modifier-equipements');
+Route::get('modifier-equipement-{item}', [EquipementController::class, 'store'])->name('afficher-modification');
+Route::get('modifiers-equipement-{item}', [EquipementController::class, 'update'])->name('modifier-equipements');
+Route::get('detail-equipement-{item}', [EquipementController::class, 'show'])->name('details-equipement');
+Route::get('affectation-equipement-{item}', [EquipementController::class, 'affectation'])->name('affectation-equipement');
 
 Route::get('liste-operation', [EquipementController::class, 'indexOperation'])->name('liste-operation');
 

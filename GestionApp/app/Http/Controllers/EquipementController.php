@@ -37,6 +37,7 @@ class EquipementController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+    // Le route qui renvoi le formulaire de création d'un équipement
     public function createquipement()
     {
         $state_equipement = State::orderBy('intitule')->get();
@@ -89,9 +90,14 @@ class EquipementController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Equipements $item)
     {
-        //
+        $state_equipement = State::orderBy('intitule')->get();
+        $equipement_type = EquipementType::orderBy('intitule')->get();
+        $site_liste = Site::orderBy('site')->get();
+        $region_liste = Region::orderBy('nom')->get();
+        return view('administration.page.Equipement.detail', compact('site_liste', 'region_liste','equipement_type','state_equipement','item'));
+
     }
 
     /**
@@ -116,5 +122,14 @@ class EquipementController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    //Les fonction d'affectation
+    public function affectation(Equipements $item){
+        $state_equipement = State::orderBy('intitule')->get();
+        $equipement_type = EquipementType::orderBy('intitule')->get();
+        $site_liste = Site::orderBy('site')->get();
+        $region_liste = Region::orderBy('nom')->get();
+        return view('administration.page.Operation.affectation', compact('site_liste', 'region_liste','equipement_type','state_equipement','item'));
     }
 }

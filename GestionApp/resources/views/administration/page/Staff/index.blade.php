@@ -37,6 +37,7 @@
                     <th scope="col">Age</th>
                     <th scope="col">Age</th>
                     <th scope="col">Start Date</th>
+                    <th scope="col">Photos</th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
@@ -48,6 +49,10 @@
                     <td>28</td>
                     <td>2016-05-25</td>
                     <td>233</td>
+                    <td>234</td>
+                    <td>
+                        <img src="assets/img/product-1.jpg" height="50px" width="50px" class="rounded-circle">
+                    </td>
                     <td>345</td>
                     <td>
                         <a class="text-black" href=""><i class="bi bi-eye"></i></a>&nbsp;
@@ -61,6 +66,8 @@
                     <td>Developer</td>
                     <td>35</td>
                     <td>2014-12-05</td>
+                    <td>345</td>
+                    <td>4()</td>
                     <td>3553</td>
                     <td>3456</td>
                     <td>
@@ -75,6 +82,7 @@
               <!-- End Table with stripped rows -->
 
             </div>
+
         </div>
 
     </div>
