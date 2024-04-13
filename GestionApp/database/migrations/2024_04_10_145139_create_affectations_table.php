@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('affectations', function (Blueprint $table) {
             $table->id();
+            $table->integer('operation');
+            $table->integer('useraffected');
+            $table->string('location');
+            $table->string('site');
+            $table->string('reason');
+            $table->integer('equipement_id');
             $table->timestamps();
         });
     }

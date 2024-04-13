@@ -39,6 +39,7 @@ Route::get('modifier-equipement-{item}', [EquipementController::class, 'store'])
 Route::get('modifiers-equipement-{item}', [EquipementController::class, 'update'])->name('modifier-equipements');
 Route::get('detail-equipement-{item}', [EquipementController::class, 'show'])->name('details-equipement');
 Route::get('affectation-equipement-{item}', [EquipementController::class, 'affectation'])->name('affectation-equipement');
+Route::post('affectations-equipements-{item}', [EquipementController::class, 'affectation_equipement'])->name('affectations-equipements');
 
 Route::get('liste-operation', [EquipementController::class, 'indexOperation'])->name('liste-operation');
 

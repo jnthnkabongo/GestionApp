@@ -4,11 +4,11 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="pagetitle">
-                    <h1>Liste Opération</h1>
+                    <h1>Liste Affectation</h1>
                     <nav>
                       <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('index') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Liste Opération</li>
+                        <li class="breadcrumb-item active">Liste Affectation</li>
                       </ol>
                     </nav>
                 </div>
@@ -24,51 +24,49 @@
 
         <div class="card">
             <div class="card-body">
-              <h5 class="card-title text-center">Liste du Staff</h5>
+              <h5 class="card-title text-center">Liste d'Affectation</h5>
 
               <!-- Table with stripped rows -->
               <table class="table table-striped">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Position</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Start Date</th>
+                    <th scope="col">Nom Agent</th>
+                    <th scope="col">Equipement</th>
+                    <th scope="col">Identifiant Equipement</th>
+                    <th scope="col">Opération</th>
+                    <th scope="col">Region</th>
+                    <th scope="col">Site</th>
+                    <th scope="col">Raison</th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Brandon Jacob</td>
-                    <td>Designer</td>
-                    <td>28</td>
-                    <td>2016-05-25</td>
-                    <td>233</td>
-                    <td>345</td>
-                    <td>
-                        <a class="text-black" href=""><i class="bi bi-eye"></i></a>&nbsp;
-                        <a class="text-black" href=""><i class="bi bi-pencil"></i></a>&nbsp;
-                        <a class="text-black" href=""><i class="bi bi-trash"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Bridie Kessler</td>
-                    <td>Developer</td>
-                    <td>35</td>
-                    <td>2014-12-05</td>
-                    <td>3553</td>
-                    <td>3456</td>
-                    <td>
-                        <a class="text-black" href=""><i class="bi bi-eye"></i></a>&nbsp;
-                        <a class="text-black" href=""><i class="bi bi-pencil"></i></a>&nbsp;
-                        <a class="text-black" href=""><i class="bi bi-trash"></i></a>
-                    </td>
-                  </tr>
+                    @forelse ($liste_affecattion as $affectation)
+                        <tr>
+                            <td class="cell"></td>
+                            <td class="cell">{{ $affectation->Staff->names }}</td>
+                            <td class="cell">{{ $affectation->EquipementAffect->equipement }}</td>
+                            <td class="cell">{{ $affectation->EquipementAffect->id }}</td>
+                            <td class="cell">{{ $affectation->Operation->intitule }}</td>
+                            <td class="cell">{{ $affectation->Region->nom }}</td>
+                            <td class="cell">{{ $affectation->Site->site }}</td>
+                            <td class="cell">{{ $affectation->reason }}</td>
+                            <td>
+                                <a href="" class="text-black"><i class="bi bi-person-bounding-box"></i></a>&nbsp;
+                                <a href="" class="text-black" ><i class="bi bi-eye"></i></a>&nbsp;
+                                <a href="" class="text-black" ><i class="bi bi-pencil"></i></a>&nbsp;
+                                <a href="" class="text-black"><i class="bi bi-trash"></i></a>
+                            </td>
+                        </tr>
+                    @empty
+                    <tr>
+                        <td class="cell" colspan="12">
+                            <div class="" style="text-align: center">Aucun équipement affecté</div>
+                        </td>
+                    </tr>
+                    @endforelse
+
 
                 </tbody>
               </table>

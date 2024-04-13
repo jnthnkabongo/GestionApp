@@ -24,24 +24,38 @@
             <div class="card-body">
             <h5 class="card-title text-center">Affectation d'un équipement</h5>
 
-                <form action="{{ route('modifier-equipements', $item->id) }}" method="POST" class="row g-3">
+                <form action="{{ route('affectations-equipements', $item->id) }}" method="POST" class="row g-3">
                     @csrf
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <select class="form-control" name="" id="" >
-                                <option value=""></option>
+                            <select class="form-control" name="operation" id="operation" >
+                                <option value="">Choisissez une action</option>
+                                @foreach ($etat_affectation as $affectation)
+                                    <option value="{{ $affectation->id }}">{{ Str::upper($affectation->intitule) }}</option>
+                                @endforeach
                             </select>
                             <label for="floatingSelect">Affectation</label>
-
+                        </div>
+                        <div class="text-danger">
+                            @error("operation")
+                                {{ $message }}
+                            @enderror
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <select class="form-control" name="" id="">
-                                <option value=""></option>
+                            <select class="form-control" name="useraffected" id="useraffected">
+                                <option value="">Choisissez un agent</option>
+                                @foreach ($liste_staff as $staff)
+                                    <option value="{{ $staff->id }}">{{ Str::upper($staff->names) }}</option>
+                                @endforeach
                             </select>
                             <label for="floatingSelect">Agent Affecté</label>
-
+                        </div>
+                        <div class="text-danger">
+                            @error("useraffected")
+                                {{ $message }}
+                            @enderror
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -104,7 +118,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
-                            <select class="form-select" id="location_id" name="location_id" aria-label="Region">
+                            <select class="form-select" id="location" name="location" aria-label="Region">
                                 @if ($item->Region)
                                     <option value="{{ $item->Region->id }}">{{ $item->Region->nom }}</option>
                                 @endif
@@ -115,7 +129,7 @@
                             <label for="floatingSelect">Region</label>
                         </div>
                         <div class="text-danger">
-                            @error("location_id")
+                            @error("location")
                                 {{ $message }}
                             @enderror
                         </div>
@@ -123,7 +137,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-floating mb-3">
-                            <select class="form-select" id="site_id" name="site_id" aria-label="Equipement Type" readonly>
+                            <select class="form-select" id="site" name="site" aria-label="Equipement Type" readonly>
                                 @if ($item->Site)
                                     <option value="{{ $item->Site->id }}">{{ $item->Site->site }}</option>
                                 @endif
@@ -134,7 +148,7 @@
                             <label for="floatingSelect">Site</label>
                         </div>
                         <div class="text-danger">
-                            @error("site_id")
+                            @error("site")
                                 {{ $message }}
                             @enderror
                         </div>
@@ -162,27 +176,29 @@
                                 {{ $message }}
                             @enderror
                         </div>
-
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="feedback" name="feedback" value="{{ $item->feedback }}" readonly>
                             <label for="floatingName">Feedback</label>
                         </div>
-                        <div class="form-floating mt-4">
-                            <input type="text" class="form-control" id="feedback" name="feedback" >
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="reason" name="reason" >
                             <label for="floatingName">Raison</label>
                         </div>
                         <div class="text-danger">
-                            @error('feedback')
+                            @error('reason')
                                 {{ $message }}
                             @enderror
                         </div>
-
                     </div>
-                    <div class="col-6">
+
+                    <div class="col-md-6">
                         <div class="form-floating">
-                            <textarea class="form-control" id="observation" name="observation" style="height: 140px;">{{ $item->observation }}</textarea>
+                            <textarea class="form-control" id="observation" name="observation" style="height: 50px;">{{ $item->observation }}</textarea>
                             <label for="floatingTextarea">Observation</label>
                             <div class="text-danger">
                                 @error("observation")
@@ -191,8 +207,20 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="equipement_id" name="equipement_id" value="{{ $item->id }}" readonly>
+                            <label for="floatingName">Identifiant Equipement </label>
+                        </div>
+                        <div class="text-danger">
+                            @error("equipement_id")
+                                {{ $message }}
+                            @enderror
+                        </div>
+                    </div>
                     <div class="col-md-12 text-center">
-                        <a href="" class="btn btn-primary w-50">Affecté équipement</a>
+                        <button type="submit" class="btn btn-primary w-50">Affecté équipement</button>
                     </div>
 
                 </form>
